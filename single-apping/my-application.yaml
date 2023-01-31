@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://github.com/OloruntobiOlurombi/single-app.git 
     targetRevision: main
-    path: ./
+    path: ./manifests
    
     # directory
     directory:
