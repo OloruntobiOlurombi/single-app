@@ -1,8 +1,30 @@
-# single-app
+# Creation and Syncing of Kubertenes Application.
 
-An application can be created in Argo CD from the UI, CLI, or by writing a Kubernetes manifest that can then be passed to kubectl to create resources.
+## Overview:
 
-Creating an ArgoCD application in the UI
+- In this article we will examine how to create and Sync a kubernetes application using Argo CD from the UI and CLI. An application can be created in Argo CD from the UI, CLI, or by writing a Kubernetes manifest that can then be passed to kubectl to create resources. First we will consider the meaning of Agro CD and principles guilding it.
+
+### What is Agro CD?
+
+- Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.
+
+### Argo CD implements all GitOps principles that we described in the following way:
+
+- You install Argo CD as a controller in the Kubernetes cluster. Usually you install Argo CD on the same cluster that it manages. It is also possible for Argo CD to manage external clusters.
+
+- You store your manifests in Git. Argo CD is agnostic on the type of manifests you can use. It supports plain Kubernetes manifests, Helm charts, Kustomize definitions, and other templating mechanisms.
+
+- You create an Argo CD application by defining which Git repository to monitor and to which cluster/namespace this application should be installed.
+
+- From now on, Argo CD monitors the Git repository, and when there is a change, it automatically brings the cluster to the same state.
+
+- Optionally Argo CD can deploy applications to other clusters (and not just the one on which it is installed).
+
+### Prerequisites:
+1. Basic knowledge of Kubernetes is required.
+2. Install Argo CD as a controller in the Kubernetes cluster. 
+3. Clone this github repo https://github.com/OloruntobiOlurombi/gitops-certification-examples
+
 
 First, navigate to the +NEW APP on the left-hand side of the UI. 
 
