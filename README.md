@@ -72,7 +72,14 @@ Now that we have the prerequisites are out of the way,  we will proceed with our
 <img width="1092" alt="Screenshot 2023-02-20 at 11 30 35 AM" src="https://user-images.githubusercontent.com/40290711/220215049-5f3381e3-db21-4e4f-a1d7-14ec1fd36180.png">
 
 
-Then, click CREATE and you have now created your Argo CD application.
+- Then, click CREATE and you have now created your Argo CD application
+
+<img width="1433" alt="Screenshot 2023-02-20 at 11 30 52 AM" src="https://user-images.githubusercontent.com/40290711/220313451-d68d496f-0ccf-4a70-adb7-1b3969ed3ced.png">
+
+<img width="1335" alt="Screenshot 2023-02-20 at 11 32 30 AM" src="https://user-images.githubusercontent.com/40290711/220313687-8ad21f5c-c560-4c2c-acff-6ca30f87532e.png">
+
+<img width="1438" alt="Screenshot 2023-02-20 at 11 33 16 AM" src="https://user-images.githubusercontent.com/40290711/220313775-5b353f51-9724-446e-865f-d1ca2ef9e1fa.png">
+
 
 Creating an Argo CD application with the argocd CLI
 ```
