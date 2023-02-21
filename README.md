@@ -20,39 +20,57 @@
 
 - Optionally Argo CD can deploy applications to other clusters (and not just the one on which it is installed).
 
+<img width="991" alt="Screenshot 2023-02-20 at 4 02 33 PM" src="https://user-images.githubusercontent.com/40290711/220215334-08293a2a-3c9d-4361-b199-dc5be4cb7230.png">
+
+
 ### Prerequisites:
 1. Basic knowledge of Kubernetes is required.
 2. Install Argo CD as a controller in the Kubernetes cluster. 
 3. Clone this github repo https://github.com/OloruntobiOlurombi/gitops-certification-examples
 
+Now that we have the prerequisites are out of the way,  we will proceed with our objective.
 
-First, navigate to the +NEW APP on the left-hand side of the UI. 
+### Steps:
 
-Next, add the following to create the application:
+### Creating an ArgoCD application in the UI:
 
-General Section:
+- To start with we will have to navigate to the ***NEW APP*** on the left-hand side of the UI. 
 
-
-Application Name: TBD
-
-Project: default
-
-Sync Policy: Automatic
-
-Source Section:
-
-Repository URL/Git: this is the GitHub repository URL
-
-Branches: main
-
-Path: TBD
-
-Destination Section:
+- Next, add the following to create the application:
 
 
-Cluster URL: select the cluster URL you are using
+#### General Section:
 
-Namespace: default
+- Application Name: simple-app
+
+- Project: default
+
+- Sync Policy: Automatic
+
+
+<img width="1439" alt="Screenshot 2023-02-20 at 11 29 35 AM" src="https://user-images.githubusercontent.com/40290711/220214888-a2d60e11-cb33-4740-a624-24177cda82c6.png">
+
+
+#### Source Section:
+
+- Repository URL/Git: this is the GitHub repository URL above (https://github.com/OloruntobiOlurombi/gitops-certification-examples). Please use your cloned repository.
+
+- Branches: main
+
+- Path: ./simple-app
+
+<img width="1121" alt="Screenshot 2023-02-20 at 11 30 17 AM" src="https://user-images.githubusercontent.com/40290711/220214911-136858d4-cf3c-4350-9f14-ef1a12c523fe.png">
+
+
+#### Destination Section:
+
+- Cluster URL: select the cluster URL you are using
+
+- Namespace: default
+
+
+<img width="1092" alt="Screenshot 2023-02-20 at 11 30 35 AM" src="https://user-images.githubusercontent.com/40290711/220215049-5f3381e3-db21-4e4f-a1d7-14ec1fd36180.png">
+
 
 Then, click CREATE and you have now created your Argo CD application.
 
