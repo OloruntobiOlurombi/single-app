@@ -81,30 +81,31 @@ Now that we have the prerequisites are out of the way,  we will proceed with our
 <img width="1438" alt="Screenshot 2023-02-20 at 11 33 16 AM" src="https://user-images.githubusercontent.com/40290711/220313775-5b353f51-9724-446e-865f-d1ca2ef9e1fa.png">
 
 
-Creating an Argo CD application with the argocd CLI
+### Creating an Argo CD application with the argocd CLI
+
+- It is important to note that we can also recreate the above steps using the argocd CLI using the command below:
+
 ```
 argocd app create {APP NAME} \
 --project {PROJECT} \
 --repo {GIT REPO} \--path {APP FOLDER} \
 --dest-namespace {NAMESPACE} \
 --dest-server {SERVER URL}
-{APP NAME} is the name you want to give the application
-{PROJECT} is the name of the project created or "default"
-{GIT REPO} is the url of the git repository where the gitops config is located
-{APP FOLDER} is the path to the configuration for the application in the gitops repo
-{DEST NAMESPACE} is the target namespace in the cluster where the application will be deployed
-{SERVER URL} is the url of the cluster where the application will be deployed. Use https://kubernetes.default.svc to reference the same cluster where Argo CD has been deployed
 ```
 
-Once this completes, you can see the status and configuration of the application.
+- {APP NAME} is the name you want to give the application
+- {PROJECT} is the name of the project created or "default"
+- {GIT REPO} is the url of the git repository where the gitops config is located
+- {APP FOLDER} is the path to the configuration for the application in the gitops repo
+- {DEST NAMESPACE} is the target namespace in the cluster where the application will be deployed
+- {SERVER URL} is the url of the cluster where the application will be deployed. Use https://kubernetes.default.svc to reference the same cluster where Argo CD has been deployed
 
-
-
+##### Once this completes, you can see the status and configuration of the application.
 
 ```
 argocd app list
 ```
-For a more detailed view of the application configuration, run:
+- For a more detailed view of the application configuration, run:
 
 ```
 argocd app get {APP NAME}
@@ -114,24 +115,42 @@ argocd app get {APP NAME}
 
 ### Synchronizing an Argo CD application in the UI
 
-Initially, the application is in OutOfSync state since the application has yet to be deployed, and no Kubernetes resources have been created.
+- Initially, the application is in OutOfSync state since the application has yet to be deployed, and no Kubernetes resources have been created.
 
-To synchronize/deploy the Argo CD app:
+- To synchronize/deploy the Argo CD app we will do the following:
 
 1. Choose the tile and then select SYNC
 
-This will provide you options of what you want to synchronize.
+- This will provide you options of what you want to synchronize.
+
+<img width="1333" alt="Screenshot 2023-02-20 at 11 40 26 AM" src="https://user-images.githubusercontent.com/40290711/220317757-fbad4fc3-6747-4bff-a747-b4e1b904e66d.png">
 
 2. Select the default options and synchronize all manifests
 
-Once it's deployed, you will see the resources deployed in the UI and a Healthy status.
+- Once it's deployed, you will see the resources deployed in the UI and a Healthy status.
 
-<IMG>
+<img width="603" alt="Screenshot 2023-02-20 at 11 42 19 AM" src="https://user-images.githubusercontent.com/40290711/220317899-5a3fa0dc-ad3a-4eb1-bcc2-9e347e5475c7.png">
 
-# Synchronizing an Argo CD application with the argocd CLI.
+
+### Synchronizing an Argo CD application with the argocd CLI.
   
-Since the application is in OutOfSync status once created because it hasn’t been deployed yet, we will then sync the application with a sync command.
+- Since the application is generated and not yet deployed, it is in the OutOfSync status, thus we will use the sync command to bring it back into sync.
+
+```
 argocd app sync {APP NAME}
-This synchronizes the application. To confirm it’s running, you can execute a kubectl command.
+```
+
+<img width="517" alt="Screenshot 2023-02-20 at 11 45 36 AM" src="https://user-images.githubusercontent.com/40290711/220319466-cd70f8c0-96d8-49e3-b563-527d79c6dc3a.png">
+
+
+The program is synchronized as a result. You can perform a kubectl command to make sure it's running.
+
+```
 kubectl -n {NAMESPACE} get all
-The application will have a status “Running” if synchronized successfully.
+```
+
+<img width="513" alt="Screenshot 2023-02-20 at 11 51 42 AM" src="https://user-images.githubusercontent.com/40290711/220319599-83c8b979-d329-439b-b837-2b3aae7d90c3.png">
+
+If the synchronization was successful, the application will display the status "Running".
+
+The article has now come to a conclusion, and I sincerely hope you found it helpful.
