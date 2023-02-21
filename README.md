@@ -83,7 +83,7 @@ Now that we have the prerequisites are out of the way,  we will proceed with our
 
 ### Creating an Argo CD application with the argocd CLI
 
-- It is important to note that we can also recreate the above steps using the argocd CLI using the command below:
+- It is significant to note that the following command can also be used to repeat the previous steps using the Argocd CLI:
 
 ```
 argocd app create {APP NAME} \
