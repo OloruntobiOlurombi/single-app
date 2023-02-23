@@ -1,4 +1,4 @@
-# Creation and Syncing of Kubertenes Application.
+# Creating and Syncing of Kubertenes Application using ArgoCD.
 
 ## Overview:
 
